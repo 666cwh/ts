@@ -59,7 +59,7 @@ console.log(classname.age)  //报错
 console.log(classname.data) //报错
 
 
-constructor  构造器
+//constructor  构造器
 
 //执行时间为new实例时
 class ConstructoraaName {
