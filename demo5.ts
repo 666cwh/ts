@@ -1,29 +1,29 @@
 
-// /**
-//  * class中的Setter和Getter:保护私有属性
-//  */
-// class ClassData{
-//   constructor(private _name:string){}   //get和set不会更改_name
-//   get name(){     //读取_name
-//     return this._name 
-//   }
-//   set name(name:string){  //更改_name
-//     const setName = name.split('')[0]
-//     this._name = setName
-//   }
-// }
+/**
+ * class中的Setter和Getter:保护私有属性
+ */
+class ClassData{
+  constructor(private _name:string){}   //get和set不会更改_name
+  get name(){     //读取_name
+    return this._name 
+  }
+  set name(name:string){  //更改_name
+    const setName = name.split('')[0]
+    this._name = setName
+  }
+}
 
-// let classData = new ClassData('cheng')
+let classData = new ClassData('cheng')
 
-// //console.log(classData._name)  // 属性“name”为私有属性，只能在类“ClassData”中访问。
-// console.log(classData.name)  //cheng
+//console.log(classData._name)  // 属性“name”为私有属性，只能在类“ClassData”中访问。
+console.log(classData.name)  //cheng
 
-// classData.name = 'xi haha'
-// console.log(classData.name) //xi
+classData.name = 'xi haha'
+console.log(classData.name) //xi
 
 
 /**
- * 单例模式:一个特定类只允许获取一个实例
+ * 单例模式:一个特定类只允许获取一个实例,第二次使用同一个类创建新对象的时候，应该得到与第一次创建对象完全相同的对象
  */
 
 // 一个类可以获取多个实例
@@ -48,4 +48,4 @@ class Demotrue{
 const demotrueOne = Demotrue.getDemotrue()
 const demotrueTwo = Demotrue.getDemotrue()
 
-console.log(demotrueOne.name,demotrueTwo.name)
+console.log(demotrueOne.name,demotrueTwo.name)  //cheng haha   cheng haha
