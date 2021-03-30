@@ -4,8 +4,8 @@ import superagent from 'superagent';  //引入爬虫工具
 
 import fs from 'fs'
 import path from 'path'
-// import DellAnalyzer from './dellAnalyzer'
-import LeeAnay from './leeAnay'
+import DellAnalyzer from './dellAnalyzer'
+// import LeeAnay from './leeAnay'
 
 export interface Analyzer{
   anylyze:(html:string,filePath:string) => string;
@@ -38,8 +38,10 @@ class Crowller {
 const secret = 'x3b174jsx'
 const url = `http://www.dell-lee.com/typescript/demo.html?secret=${secret}`
 // const dellAnalyzer = new DellAnalyzer()
-const dellAnalyzer = new LeeAnay()
-
+// const dellAnalyzer = new LeeAnay()
+//单例模式
+const dellAnalyzer = DellAnalyzer.getInstance()
 const crowller = new Crowller(url,dellAnalyzer)
+
 
 
