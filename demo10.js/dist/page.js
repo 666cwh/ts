@@ -1,6 +1,6 @@
-"use strict";
-var compontent;
-(function (compontent) {
+define("component", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     var Header = /** @class */ (function () {
         function Header() {
             var ele = document.createElement('div');
@@ -9,7 +9,7 @@ var compontent;
         }
         return Header;
     }());
-    compontent.Header = Header;
+    exports.Header = Header;
     var Content = /** @class */ (function () {
         function Content() {
             var ele = document.createElement('div');
@@ -18,22 +18,17 @@ var compontent;
         }
         return Content;
     }());
-    compontent.Content = Content;
-})(compontent || (compontent = {}));
-/**
- * 命名空间(namespace):避免全局变量生成,类似模块化
- */
-var Home;
-(function (Home) {
+    exports.Content = Content;
+});
+define("page", ["require", "exports", "component"], function (require, exports, component_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
     var Page = /** @class */ (function () {
         function Page() {
-            this.user = {
-                name: 'cheng',
-            };
-            new compontent.Header();
-            new compontent.Content();
+            new component_1.Header();
+            new component_1.Content();
         }
         return Page;
     }());
-    Home.Page = Page;
-})(Home || (Home = {}));
+    exports.Page = Page;
+});
