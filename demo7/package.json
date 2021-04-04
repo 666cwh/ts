@@ -1,0 +1,18 @@
+{
+  "name": "demo7",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.2.3"
+  },
+  "devDependencies": {
+    "ts-node": "^9.1.1"
+  },
+  "scripts": {
+    "dev":"ts-node ./demo7.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
