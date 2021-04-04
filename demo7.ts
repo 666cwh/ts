@@ -63,15 +63,39 @@
 //   }
 // }
 
-//类型保护实现方式:3
-interface Dog {
-  color: boolean;
-  name: () => {};
+// //类型保护实现方式:3.typeof语法类型保护
+
+// function add(first: string | number, second: string | number) {
+//   return first + second; //运算符“+”不能应用于类型“string | number”和“string | number”。ts(2365)
+// }
+
+// function add1(first: string | number, second: string | number) {
+//   if (typeof first === 'string' || typeof second === 'string') {
+//     return `${first}${second}`;
+//   }
+//   return first + second;
+// }
+
+//类型保护实现方式:4.instanceof语法类型保护
+//注意:只有当定义的类型时class时可以使用instanceof,interface不能使用
+
+interface NumberObj {
+  count: number;
+}
+function add(first: object | NumberObj, second: object | NumberObj) {
+  //“NumberObj”仅表示类型，但在此处却作为值使用。ts(2693)
+  if (first instanceof NumberObj && second instanceof NumberObj) {
+    return first.count + second.count; //类型“object | NumberObj”上不存在属性“count”。 类型“object”上不存在属性“count”。
+  }
+  return 0;
 }
 
-interface pig {
-  color: boolean;
-  age: () => {};
+class NumberObj1 {
+  count: number = 0;
 }
-
-function unite(data: Dog | pig) {}
+function add1(first: object | NumberObj1, second: object | NumberObj1) {
+  if (first instanceof NumberObj1 && second instanceof NumberObj1) {
+    return first.count + second.count;
+  }
+  return 0;
+}
